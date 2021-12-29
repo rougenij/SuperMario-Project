@@ -1,0 +1,9 @@
+.main-container {
+  background: url(./Images/bluebackground.jpg);
+}
+.App {
+  opacity: 1;
+  background-color: #5d94fb;
+  width: 75vw;
+  margin: auto;
+}

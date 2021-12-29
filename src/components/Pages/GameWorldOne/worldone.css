@@ -1,0 +1,34 @@
+.matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(13, 1fr);
+  z-index: 2;
+}
+.sky {
+  background: url("../../../Images/sky.png") center center / cover no-repeat;
+  height: 75px;
+}
+.ground {
+  background: url("../../../Images/ground.png") center center / cover no-repeat;
+}
+.pipe3-1 {
+  background: url("../../../Images/pipe3-1.png") center center / cover no-repeat;
+}
+.pipe3-2 {
+  background: url("../../../Images/pipe3-2.png") center center / cover no-repeat;
+}
+.pipe3-3 {
+  background: url("../../../Images/pipe3-3.png") center center / cover no-repeat;
+}
+.pipe3-4 {
+  background: url("../../../Images/pipe3-4.png") center center / cover no-repeat;
+}
+.block {
+  background: url("../../../Images/block.png") center center / cover no-repeat;
+}
+.lucky {
+  background: url("../../../Images/lucky.png") center center / cover no-repeat;
+}
+.mario {
+  background: url("../../../Images/mario.png") center center / cover no-repeat;
+}
