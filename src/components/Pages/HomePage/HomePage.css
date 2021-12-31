@@ -12,34 +12,21 @@
   padding: 1rem 2rem;
   font-size: 1.5rem;
 }
-.main-home {
-  border: 1px solid black;
-  background-color: #fbc45d;
-  color: rgb(75, 74, 74);
-  font-weight: bold;
-  padding: 0.5rem 0.5rem;
-  border-radius: 10%;
-}
-.main-home a {
-  text-decoration: none;
-  color: rgb(75, 74, 74);
-}
-.main-home:hover {
-  cursor: pointer;
-  opacity: 0.8;
-}
+.main-home,
 .main-adminpanel {
-  border: 1px solid black;
+  border: 1px solid transparent;
   background-color: #fbc45d;
   color: rgb(75, 74, 74);
   font-weight: bold;
   padding: 0.5rem 0.5rem;
-  border-radius: 10%;
+  border-radius: 20%;
 }
+.main-home a,
 .main-adminpanel a {
   text-decoration: none;
   color: rgb(75, 74, 74);
 }
+.main-home:hover,
 .main-adminpanel:hover {
   cursor: pointer;
   opacity: 0.8;
@@ -47,18 +34,29 @@
 .main-homepage {
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 0.5rem;
 }
 .homepage-btn-playgame {
-  border: 1px solid black;
+  border: 1px solid transparent;
   background-color: #fbc45d;
   color: rgb(75, 74, 74);
   font-weight: bold;
   padding: 1rem 5rem;
   font-size: 3rem;
 }
-.homepage-btn-playgame:hover {
+.homepage-btn-playgame:hover,
+.homepage-btn-howtoplay:hover {
   opacity: 0.8;
   cursor: pointer;
+}
+.homepage-btn-howtoplay {
+  border: 1px solid transparent;
+  background-color: #fbc45d;
+  color: rgb(75, 74, 74);
+  font-weight: bold;
+  padding: 1rem 4.2rem;
+  font-size: 3rem;
 }

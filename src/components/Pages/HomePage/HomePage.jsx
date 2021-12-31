@@ -17,6 +17,7 @@ function HomePage() {
         <Link to={"/game"}>
           <button className="homepage-btn-playgame">Play Game</button>
         </Link>
+        <button className="homepage-btn-howtoplay">How to Play</button>
       </main>
     </div>
   );
