@@ -8,6 +8,9 @@ function WorldOne() {
   const [matrix, setMatrix] = useState(startingMatrix);
 
   const drawMap = (matrix) => {
+    if (false) {
+      setMatrix(matrix);
+    }
     let el = "";
     let temp = [];
     let temp2 = [];
@@ -50,7 +53,7 @@ function WorldOne() {
   };
   useEffect(() => {
     drawMap(matrix);
-  }, []);
+  }, [matrix]);
 
   const displayMap = () => {
     return world.map((tile, i) => {

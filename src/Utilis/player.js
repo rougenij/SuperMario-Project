@@ -1,4 +1,4 @@
-const playerMove = async (e, matrix) => {
+const playerMove = (e, matrix) => {
   let temp = [...matrix];
   let position = 0;
   for (let i = 0; i < temp.length; i++) {
@@ -26,7 +26,7 @@ const playerMove = async (e, matrix) => {
     }, 500);
   }
 
-  return await temp;
+  return temp;
 };
 
 export default playerMove;
