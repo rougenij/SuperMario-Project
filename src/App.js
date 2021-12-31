@@ -1,11 +1,11 @@
 import "./App.css";
-import WorldOne from "./components/Pages/GameWorldOne/WorldOne";
+import HomePage from "./components/Pages/HomePage/HomePage";
 
 function App() {
   return (
     <div className="main-container">
       <div className="App">
-        <WorldOne />
+        <HomePage />
       </div>
     </div>
   );
