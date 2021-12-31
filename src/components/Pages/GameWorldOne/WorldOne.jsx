@@ -65,7 +65,7 @@ function WorldOne() {
     });
   };
   return (
-    <div>
+    <div className="App">
       <div
         className="matrix-grid"
         tabIndex={0}

@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import HomePage from "./components/Pages/HomePage/HomePage";
 import WorldOne from "./components/Pages/GameWorldOne/WorldOne";
+import Users from "./components/Pages/Users/Users";
 import NotFound from "./components/Pages/NotFound/NotFound";
 
 function App() {
@@ -11,9 +12,8 @@ function App() {
         <div>
           <Switch>
             <Route path="/" exact component={HomePage} />
-            <div className="App">
-              <Route path="/game" exact component={WorldOne} />
-            </div>
+            <Route path="/admin" exact component={Users} />
+            <Route path="/game" exact component={WorldOne} />
             <Route component={NotFound} />
           </Switch>
         </div>
