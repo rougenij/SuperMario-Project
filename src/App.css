@@ -1,5 +1,5 @@
 .main-container {
-  background: url(./Images/bluebackground.jpg);
+  background: url("./Images/bluebackground.jpg");
 }
 .App {
   opacity: 1;
