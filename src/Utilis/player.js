@@ -1,14 +1,16 @@
-const playerMove = (e, matrix) => {
+const playerMove = (e, matrix, falling) => {
   let temp = [...matrix];
   let position = 0;
-  // const random = ["mushroom", "coin", "star"];
-  // let randomSurprise = Math.floor(Math.random() * 3);
-  // console.log(random[randomSurprise]);
   for (let i = 0; i < temp.length; i++) {
     if (temp[i] === "mario") {
       position = i;
     }
   }
+
+  // const random = ["mushroom", "coin", "star"];
+  // let randomSurprise = Math.floor(Math.random() * 3);
+  // console.log(random[randomSurprise]);
+
   if (e.keyCode === 39) {
     // going right
     return marioRight(temp, position);
@@ -17,7 +19,7 @@ const playerMove = (e, matrix) => {
     //going left
     return marioLeft(temp, position);
   }
-  if (e.keyCode === 38) {
+  if (e.keyCode === 38 && !falling) {
     // Jumping
     return marioJump(temp, position);
   }
@@ -57,17 +59,8 @@ const marioJump = (temp, position) => {
   } else {
     temp[position] = temp[position - 40];
     temp[position - 40] = "mario";
-    setTimeout(() => {
-      temp[position] = temp[position + 20];
-      temp[position + 20] = "mario";
-      console.log(temp);
-      setTimeout(() => {
-        temp[position] = temp[position + 20];
-        temp[position + 20] = "mario";
-        console.log(temp);
-      }, 500);
-    }, 500);
   }
+  return temp;
 };
 
 // if (e.keyCode === 39) {

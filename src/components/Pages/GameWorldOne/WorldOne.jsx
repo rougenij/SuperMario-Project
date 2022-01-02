@@ -6,7 +6,43 @@ import "./worldone.css";
 function WorldOne() {
   const [world, setWorld] = useState([]);
   const [matrix, setMatrix] = useState(startingMatrix);
+  const [falling, setFalling] = useState(false);
   // const [monster, setMonster] = useState(monster);
+  useEffect(() => {
+    if (falling) {
+      let temp = [...world];
+      let position = 0;
+      for (let i = 0; i < temp.length; i++) {
+        if (temp[i] === "mario") {
+          position = i;
+        }
+      }
+      if (temp[position - 20] !== "sky") setFalling(false);
+      let skip = false;
+      setTimeout(() => {
+        if (
+          temp[position + 20] === "block" ||
+          temp[position + 20] === "lucky" ||
+          temp[position + 20] === "pipe3-1" ||
+          temp[position + 20] === "pipe3-2"
+        ) {
+          skip = true;
+        }
+        if (!skip) {
+          console.log("pos " + position);
+          temp[position + 20] = "mario";
+          temp[position] = "sky";
+          setTimeout(() => {
+            temp[position + 20] = "mario";
+            temp[position] = "sky";
+            setWorld(temp);
+            setFalling(false);
+          }, 500);
+        }
+      }, 500);
+    }
+  }, [falling, world]);
+
   const drawMap = (matrix) => {
     if (false) {
       setMatrix(matrix);
@@ -65,7 +101,6 @@ function WorldOne() {
   useEffect(() => {
     drawMap(matrix);
   }, [matrix]);
-  useEffect(() => {}, []);
 
   const displayMap = () => {
     return world.map((tile, i) => {
@@ -82,7 +117,10 @@ function WorldOne() {
         className="matrix-grid"
         tabIndex={0}
         onKeyDown={(e) => {
-          updateMap(playerMove(e, world));
+          if (e.keyCode === 38 && !falling) {
+            setFalling(true);
+          }
+          updateMap(playerMove(e, world, falling));
         }}
       >
         {displayMap()}
