@@ -6,7 +6,7 @@ import "./worldone.css";
 function WorldOne() {
   const [world, setWorld] = useState([]);
   const [matrix, setMatrix] = useState(startingMatrix);
-
+  // const [monster, setMonster] = useState(monster);
   const drawMap = (matrix) => {
     if (false) {
       setMatrix(matrix);
@@ -15,24 +15,37 @@ function WorldOne() {
     let temp = [];
     for (let i = 0; i < matrix.length; i++) {
       for (let j = 0; j < matrix[i].length; j++) {
-        if (matrix[i][j] === 1) {
-          el = "sky";
-        } else if (matrix[i][j] === 2) {
-          el = "ground";
-        } else if (matrix[i][j] === 31) {
-          el = "pipe3-1";
-        } else if (matrix[i][j] === 4) {
-          el = "block";
-        } else if (matrix[i][j] === 5) {
-          el = "lucky";
-        } else if (matrix[i][j] === 0) {
-          el = "mario";
-        } else if (matrix[i][j] === 32) {
-          el = "pipe3-2";
-        } else if (matrix[i][j] === 33) {
-          el = "pipe3-3";
-        } else if (matrix[i][j] === 34) {
-          el = "pipe3-4";
+        switch (matrix[i][j]) {
+          case 2:
+            el = "ground";
+            break;
+          case 4:
+            el = "block";
+            break;
+          case 5:
+            el = "lucky";
+            break;
+          case 0:
+            el = "mario";
+            break;
+          case 6:
+            el = "goomba";
+            break;
+          case 31:
+            el = "pipe3-1";
+            break;
+          case 32:
+            el = "pipe3-2";
+            break;
+          case 33:
+            el = "pipe3-3";
+            break;
+          case 34:
+            el = "pipe3-4";
+            break;
+          default:
+            el = "sky";
+            break;
         }
         temp.push(el);
         setWorld(temp);
@@ -47,11 +60,12 @@ function WorldOne() {
       temp.push(el);
     }
     setWorld(temp);
-    console.log(temp);
   };
+
   useEffect(() => {
     drawMap(matrix);
   }, [matrix]);
+  useEffect(() => {}, []);
 
   const displayMap = () => {
     return world.map((tile, i) => {

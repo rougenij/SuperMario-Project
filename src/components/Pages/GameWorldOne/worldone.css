@@ -32,3 +32,6 @@
 .mario {
   background: url("../../../Images/mario.png") center center / cover no-repeat;
 }
+.goomba {
+  background: url("../../../Images/goomba.png") center center / cover no-repeat;
+}
