@@ -150,11 +150,11 @@ const playerMove = (e, matrix) => {
   //     setTimeout(() => {
   //       temp[position] = temp[position + 20];
   //       temp[position + 20] = "mario";
-  //       setMarioState(temp);
+        setMarioState(temp);
   //       setTimeout(() => {
   //         temp[position] = temp[position + 20];
   //         temp[position + 20] = "mario";
-  //         return updateMarioState(temp);
+          return updateMarioState(temp);
   //       }, 500);
   //     }, 500);
   //   }

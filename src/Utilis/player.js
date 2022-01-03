@@ -24,7 +24,6 @@ const playerMove = (e, matrix, falling) => {
     return marioJump(temp, position);
   }
 };
-
 export default playerMove;
 
 const marioRight = (temp, position) => {
