@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import startingMatrix from "../../../Utilis/matrixWorld";
 import playerMove from "../../../Utilis/player";
 
@@ -10,7 +10,6 @@ function WorldOne() {
   const [falling, setFalling] = useState(false);
   const [score, setScore] = useState(0);
   const divEl = useRef("");
-  let fallSpeed = 350;
   const getMarioPosition = (temp) => {
     for (let i = 0; i < temp.length; i++) {
       if (temp[i] === "mario") {
@@ -66,27 +65,30 @@ function WorldOne() {
       }
     }
   };
-  const updateMap = (newWorld) => {
-    let el = "";
-    let temp = [];
-    let prevCount = 0;
-    let newCount = 0;
-    let prevWorld = [...world];
-    for (let i = 0; i < newWorld.length; i++) {
-      el = newWorld[i];
-      temp.push(el);
-    }
-    for (let i = 0; i < prevWorld.length; i++) {
-      if (prevWorld[i] === "coin") {
-        prevCount++;
+  const updateMap = useCallback(
+    (newWorld) => {
+      let el = "";
+      let temp = [];
+      let prevCount = 0;
+      let newCount = 0;
+      let prevWorld = [...world];
+      for (let i = 0; i < newWorld.length; i++) {
+        el = newWorld[i];
+        temp.push(el);
       }
-      if (temp[i] === "coin") {
-        newCount++;
+      for (let i = 0; i < prevWorld.length; i++) {
+        if (prevWorld[i] === "coin") {
+          prevCount++;
+        }
+        if (temp[i] === "coin") {
+          newCount++;
+        }
       }
-    }
-    if (prevCount !== newCount) setScore((prevScore) => prevScore + 1);
-    setWorld(temp);
-  };
+      if (prevCount !== newCount) setScore((prevScore) => prevScore + 1);
+      setWorld(temp);
+    },
+    [world]
+  );
 
   useEffect(() => {
     drawMap(matrix);
@@ -114,12 +116,12 @@ function WorldOne() {
           updateMap(temp);
         }
         setFalling(!falling);
-      }, fallSpeed);
+      }, 350);
     }
     return () => {
       clearTimeout(timeOutID);
     };
-  }, [falling, world]);
+  }, [falling, world, updateMap]);
 
   const displayMap = () => {
     return world.map((tile, i) => {

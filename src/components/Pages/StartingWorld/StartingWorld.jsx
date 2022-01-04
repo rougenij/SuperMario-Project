@@ -153,8 +153,6 @@ function StartingWorld() {
         className="matrix-grid"
         tabIndex={0}
         onKeyDown={(e) => {
-          let temp = [...world];
-          let position = getMarioPosition(temp);
           if (e.keyCode === 38 && !falling) {
             setFalling(true);
           }
