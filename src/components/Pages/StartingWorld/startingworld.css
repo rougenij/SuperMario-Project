@@ -71,7 +71,9 @@
 .pipe8 {
   background: url("../../../Images/Pipe8.jpg") center center / cover no-repeat;
 }
-
+.block {
+  background: url("../../../Images/block.png") center center / cover no-repeat;
+}
 .counter {
   position: absolute;
   color: white;

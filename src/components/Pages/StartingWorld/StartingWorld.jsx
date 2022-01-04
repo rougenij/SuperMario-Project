@@ -7,6 +7,7 @@ function StartingWorld() {
   const [matrix, setMatrix] = useState(startingWorld);
   const [world, setWorld] = useState([]);
   const [falling, setFalling] = useState(false);
+  const [counter, setCounter] = useState(0);
 
   const drawMap = (matrix) => {
     if (false) {
@@ -76,6 +77,9 @@ function StartingWorld() {
             break;
           case 0:
             el = "mario";
+            break;
+          case 3:
+            el = "block";
             break;
           default:
             el = "sky";
@@ -153,7 +157,7 @@ function StartingWorld() {
           updateMap(playerMove(e, world, falling));
         }}
       >
-        <div className="counter">0000</div>
+        <div className="counter">{counter}</div>
         {displayMap()}
       </div>
     </div>

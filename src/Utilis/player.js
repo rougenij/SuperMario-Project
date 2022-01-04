@@ -60,7 +60,8 @@ const marioLeft = (temp, position) => {
     temp[position - 1] === "castle19" ||
     temp[position - 1] === "pipe3" ||
     temp[position - 1] === "pipe6" ||
-    temp[position - 1] === "pipe9"
+    temp[position - 1] === "pipe9" ||
+    temp[position - 1] === "block"
   ) {
     temp[position] = "mario";
   } else {

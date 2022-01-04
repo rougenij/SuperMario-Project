@@ -8,6 +8,7 @@ function WorldOne() {
   const [world, setWorld] = useState([]);
   const [matrix, setMatrix] = useState(startingMatrix);
   const [falling, setFalling] = useState(false);
+  const [counter, setCounter] = useState(0);
 
   const drawMap = (matrix) => {
     if (false) {
@@ -98,27 +99,13 @@ function WorldOne() {
         temp[position] = "sky";
         if (world[position + 20] === "sky") setWorld(temp);
         setFalling(!falling);
-      }, 500);
+      }, 150);
     }
     return () => {
       clearTimeout(timeOutID);
     };
   }, [falling, world]);
 
-  useEffect(() => {
-    let temp = [...world];
-    let position = 0;
-    for (let i = 0; i < temp.length; i++) {
-      if (temp[i] === "goomba") {
-        position = i;
-      }
-    }
-    setTimeout(() => {
-      if (position % 20) {
-        temp[position] = "goomba";
-      }
-    }, 500);
-  });
   const displayMap = () => {
     return world.map((tile, i) => {
       return (
@@ -140,7 +127,7 @@ function WorldOne() {
           updateMap(playerMove(e, world, falling));
         }}
       >
-        <div className="counter">0000</div>
+        <div className="counter">{counter}</div>
         {displayMap()}
       </div>
     </div>
