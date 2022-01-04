@@ -34,16 +34,26 @@ const marioRight = (temp, position) => {
     temp[position + 1] === "pipe3-3" ||
     temp[position + 1] === "block" ||
     temp[position + 1] === "pipe3-1" ||
-    temp[position + 1] === "goomba" ||
     temp[position + 1] === "ground" ||
     temp[position + 1] === "pipe7" ||
     temp[position + 1] === "pipe4" ||
     temp[position + 1] === "pipe2"
   ) {
     temp[position] = "mario";
+  } else if (temp[position + 1] === "coin") {
+    temp[position] = "sky";
+    temp[position + 1] = "mario";
+  } else if (temp[position + 1] === "goomba") {
+    setTimeout(() => {
+      alert("dead");
+      document.location.pathname = "game";
+    }, 500);
   } else {
     temp[position] = temp[position + 1];
     temp[position + 1] = "mario";
+  }
+  if (temp[position + 1] === "pipe7") {
+    document.location.pathname = "worldone";
   }
 
   return temp;
@@ -64,6 +74,9 @@ const marioLeft = (temp, position) => {
     temp[position - 1] === "block"
   ) {
     temp[position] = "mario";
+  } else if (temp[position - 1] === "coin") {
+    temp[position] = "sky";
+    temp[position - 1] = "mario";
   } else {
     temp[position] = temp[position - 1];
     temp[position - 1] = "mario";

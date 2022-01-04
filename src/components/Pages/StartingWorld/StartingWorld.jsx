@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { startingWorld } from "../../../Utilis/matrixWorld";
 import playerMove from "../../../Utilis/player";
 import "./startingworld.css";
@@ -7,7 +7,15 @@ function StartingWorld() {
   const [matrix, setMatrix] = useState(startingWorld);
   const [world, setWorld] = useState([]);
   const [falling, setFalling] = useState(false);
+  const divEl = useRef("");
 
+  const getMarioPosition = (temp) => {
+    for (let i = 0; i < temp.length; i++) {
+      if (temp[i] === "mario") {
+        return i;
+      }
+    }
+  };
   const drawMap = (matrix) => {
     if (false) {
       setMatrix(matrix);
@@ -101,16 +109,14 @@ function StartingWorld() {
 
   useEffect(() => {
     drawMap(matrix);
+    divEl.current.focus();
   }, [matrix]);
+
   useEffect(() => {
     let temp = [...world];
     let position = 0;
 
-    for (let i = 0; i < temp.length; i++) {
-      if (temp[i] === "mario") {
-        position = i;
-      }
-    }
+    position = getMarioPosition(temp);
     if (temp[position + 20] === "sky") setFalling(true);
   }, [world]);
   useEffect(() => {
@@ -120,11 +126,7 @@ function StartingWorld() {
     console.log("falling", falling);
     if (falling) {
       timeOutID = setTimeout(() => {
-        for (let i = 0; i < temp.length; i++) {
-          if (temp[i] === "mario") {
-            position = i;
-          }
-        }
+        position = getMarioPosition(temp);
         temp[position + 20] = "mario";
         temp[position] = "sky";
         if (world[position + 20] === "sky") setWorld(temp);
@@ -144,17 +146,21 @@ function StartingWorld() {
       );
     });
   };
+
   return (
     <div className="App">
       <div
         className="matrix-grid"
         tabIndex={0}
         onKeyDown={(e) => {
+          let temp = [...world];
+          let position = getMarioPosition(temp);
           if (e.keyCode === 38 && !falling) {
             setFalling(true);
           }
           updateMap(playerMove(e, world, falling));
         }}
+        ref={divEl}
       >
         <div className="counter">0000</div>
         {displayMap()}

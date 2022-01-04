@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import startingMatrix from "../../../Utilis/matrixWorld";
 import playerMove from "../../../Utilis/player";
 
@@ -8,7 +8,16 @@ function WorldOne() {
   const [world, setWorld] = useState([]);
   const [matrix, setMatrix] = useState(startingMatrix);
   const [falling, setFalling] = useState(false);
-
+  const [score, setScore] = useState(0);
+  const divEl = useRef("");
+  let fallSpeed = 350;
+  const getMarioPosition = (temp) => {
+    for (let i = 0; i < temp.length; i++) {
+      if (temp[i] === "mario") {
+        return i;
+      }
+    }
+  };
   const drawMap = (matrix) => {
     if (false) {
       setMatrix(matrix);
@@ -57,30 +66,38 @@ function WorldOne() {
       }
     }
   };
-  const updateMap = (world) => {
+  const updateMap = (newWorld) => {
     let el = "";
     let temp = [];
-    for (let i = 0; i < world.length; i++) {
-      el = world[i];
+    let prevCount = 0;
+    let newCount = 0;
+    let prevWorld = [...world];
+    for (let i = 0; i < newWorld.length; i++) {
+      el = newWorld[i];
       temp.push(el);
     }
+    for (let i = 0; i < prevWorld.length; i++) {
+      if (prevWorld[i] === "coin") {
+        prevCount++;
+      }
+      if (temp[i] === "coin") {
+        newCount++;
+      }
+    }
+    if (prevCount !== newCount) setScore((prevScore) => prevScore + 1);
     setWorld(temp);
   };
 
   useEffect(() => {
     drawMap(matrix);
+    divEl.current.focus();
   }, [matrix]);
 
   useEffect(() => {
     let temp = [...world];
-    let position = 0;
-
-    for (let i = 0; i < temp.length; i++) {
-      if (temp[i] === "mario") {
-        position = i;
-      }
-    }
-    if (temp[position + 20] === "sky") setFalling(true);
+    let position = getMarioPosition(temp);
+    if (temp[position + 20] === "sky" || temp[position + 20] === "coin")
+      setFalling(true);
   }, [world]);
   useEffect(() => {
     let temp = [...world];
@@ -89,16 +106,15 @@ function WorldOne() {
     console.log("falling", falling);
     if (falling) {
       timeOutID = setTimeout(() => {
-        for (let i = 0; i < temp.length; i++) {
-          if (temp[i] === "mario") {
-            position = i;
-          }
-        }
+        position = getMarioPosition(temp);
         temp[position + 20] = "mario";
         temp[position] = "sky";
-        if (world[position + 20] === "sky") setWorld(temp);
+        if (world[position + 20] === "sky" || world[position + 20] === "coin") {
+          setWorld(temp);
+          updateMap(temp);
+        }
         setFalling(!falling);
-      }, 150);
+      }, fallSpeed);
     }
     return () => {
       clearTimeout(timeOutID);
@@ -125,8 +141,9 @@ function WorldOne() {
           }
           updateMap(playerMove(e, world, falling));
         }}
+        ref={divEl}
       >
-        <div className="counter">0000</div>
+        <div className="counter">{score}</div>
         {displayMap()}
       </div>
     </div>
