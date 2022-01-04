@@ -8,7 +8,6 @@ function WorldOne() {
   const [world, setWorld] = useState([]);
   const [matrix, setMatrix] = useState(startingMatrix);
   const [falling, setFalling] = useState(false);
-  const [counter, setCounter] = useState(0);
 
   const drawMap = (matrix) => {
     if (false) {
@@ -127,7 +126,7 @@ function WorldOne() {
           updateMap(playerMove(e, world, falling));
         }}
       >
-        <div className="counter">{counter}</div>
+        <div className="counter">0000</div>
         {displayMap()}
       </div>
     </div>
