@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "SuperMario";
+  src: url("../../../assets/Fonts/SuperMario256.woff") format("woff"),
+    url("../../../assets/Fonts/SuperMario256.ttf") format("tff");
+}
+
 .matrix-grid {
   display: grid;
   grid-template-columns: repeat(20, 1fr);
@@ -34,4 +40,14 @@
 }
 .goomba {
   background: url("../../../Images/goomba.png") center center / cover no-repeat;
+}
+.coin {
+  background: url("../../../Images/coin.png") center center / cover no-repeat;
+}
+
+.counter {
+  position: absolute;
+  color: white;
+  font-size: 3rem;
+  font-family: "SuperMario";
 }

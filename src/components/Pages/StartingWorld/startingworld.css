@@ -1,0 +1,80 @@
+@font-face {
+  font-family: "SuperMario";
+  src: url("../../../assets/Fonts/SuperMario256.woff") format("woff"),
+    url("../../../assets/Fonts/SuperMario256.ttf") format("tff");
+}
+
+.matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(13, 1fr);
+  z-index: 2;
+}
+.sky {
+  background: url("../../../Images/sky.png") center center / cover no-repeat;
+  height: 75px;
+}
+.ground {
+  background: url("../../../Images/ground.png") center center / cover no-repeat;
+}
+.castle11 {
+  background: url("../../../Images/Castle1.png") center center / cover no-repeat;
+}
+.castle12 {
+  background: url("../../../Images/Castle2.png") center center / cover no-repeat;
+}
+.castle13 {
+  background: url("../../../Images/Castle3.png") center center / cover no-repeat;
+}
+.castle14 {
+  background: url("../../../Images/Castle4.png") center center / cover no-repeat;
+}
+.castle15 {
+  background: url("../../../Images/Castle5.jpg") center center / cover no-repeat;
+}
+.castle16 {
+  background: url("../../../Images/Castle6.png") center center / cover no-repeat;
+}
+.castle17 {
+  background: url("../../../Images/Castle7.jpg") center center / cover no-repeat;
+}
+.castle18 {
+  background: url("../../../Images/Castle8.jpg") center center / cover no-repeat;
+}
+.castle19 {
+  background: url("../../../Images/Castle9.jpg") center center / cover no-repeat;
+}
+.pipe1 {
+  background: url("../../../Images/Pipe1.jpg") center center / cover no-repeat;
+}
+.pipe9 {
+  background: url("../../../Images/Pipe9.jpg") center center / cover no-repeat;
+}
+.pipe2 {
+  background: url("../../../Images/Pipe2.jpg") center center / cover no-repeat;
+}
+.pipe3 {
+  background: url("../../../Images/Pipe3.jpg") center center / cover no-repeat;
+}
+.pipe4 {
+  background: url("../../../Images/Pipe4.jpg") center center / cover no-repeat;
+}
+.pipe5 {
+  background: url("../../../Images/Pipe5.jpg") center center / cover no-repeat;
+}
+.pipe6 {
+  background: url("../../../Images/Pipe6.jpg") center center / cover no-repeat;
+}
+.pipe7 {
+  background: url("../../../Images/Pipe7.jpg") center center / cover no-repeat;
+}
+.pipe8 {
+  background: url("../../../Images/Pipe8.jpg") center center / cover no-repeat;
+}
+
+.counter {
+  position: absolute;
+  color: white;
+  font-size: 3rem;
+  font-family: "SuperMario";
+}

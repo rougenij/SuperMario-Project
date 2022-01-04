@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import startingMatrix from "../../../Utilis/matrixWorld";
+import { startingWorld } from "../../../Utilis/matrixWorld";
 import playerMove from "../../../Utilis/player";
+import "./startingworld.css";
 
-import "./worldone.css";
-
-function WorldOne() {
+function StartingWorld() {
+  const [matrix, setMatrix] = useState(startingWorld);
   const [world, setWorld] = useState([]);
-  const [matrix, setMatrix] = useState(startingMatrix);
   const [falling, setFalling] = useState(false);
 
   const drawMap = (matrix) => {
@@ -21,32 +20,62 @@ function WorldOne() {
           case 2:
             el = "ground";
             break;
-          case 4:
-            el = "block";
+          case 11:
+            el = "castle11";
             break;
-          case 5:
-            el = "lucky";
+          case 12:
+            el = "castle12";
+            break;
+          case 13:
+            el = "castle13";
+            break;
+          case 14:
+            el = "castle14";
+            break;
+          case 15:
+            el = "castle15";
+            break;
+          case 16:
+            el = "castle16";
+            break;
+          case 17:
+            el = "castle17";
+            break;
+          case 18:
+            el = "castle18";
+            break;
+          case 19:
+            el = "castle19";
+            break;
+          case 21:
+            el = "pipe1";
+            break;
+          case 22:
+            el = "pipe2";
+            break;
+          case 23:
+            el = "pipe3";
+            break;
+          case 24:
+            el = "pipe4";
+            break;
+          case 25:
+            el = "pipe5";
+            break;
+          case 26:
+            el = "pipe6";
+            break;
+          case 27:
+            el = "pipe7";
+            break;
+          case 28:
+            el = "pipe8";
+            break;
+          case 29:
+            el = "pipe9";
             break;
           case 0:
             el = "mario";
-            break;
-          case 6:
-            el = "goomba";
-            break;
-          case 31:
-            el = "pipe3-1";
-            break;
-          case 32:
-            el = "pipe3-2";
-            break;
-          case 33:
-            el = "pipe3-3";
-            break;
-          case 34:
-            el = "pipe3-4";
-            break;
-          case 7:
-            el = "coin";
             break;
           default:
             el = "sky";
@@ -70,7 +99,6 @@ function WorldOne() {
   useEffect(() => {
     drawMap(matrix);
   }, [matrix]);
-
   useEffect(() => {
     let temp = [...world];
     let position = 0;
@@ -104,21 +132,6 @@ function WorldOne() {
       clearTimeout(timeOutID);
     };
   }, [falling, world]);
-
-  useEffect(() => {
-    let temp = [...world];
-    let position = 0;
-    for (let i = 0; i < temp.length; i++) {
-      if (temp[i] === "goomba") {
-        position = i;
-      }
-    }
-    setTimeout(() => {
-      if (position % 20) {
-        temp[position] = "goomba";
-      }
-    }, 500);
-  });
   const displayMap = () => {
     return world.map((tile, i) => {
       return (
@@ -147,4 +160,4 @@ function WorldOne() {
   );
 }
 
-export default WorldOne;
+export default StartingWorld;
