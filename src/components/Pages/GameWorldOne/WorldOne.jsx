@@ -7,7 +7,6 @@ function WorldOne() {
   const [world, setWorld] = useState([]);
   const [matrix, setMatrix] = useState(startingMatrix);
   const [falling, setFalling] = useState(false);
-  const [skip, setSkip] = useState(false);
 
   const drawMap = (matrix) => {
     if (false) {
@@ -69,44 +68,58 @@ function WorldOne() {
   }, [matrix]);
 
   useEffect(() => {
-    console.log("hey");
-    if (falling) {
-      let temp = [...world];
-      let position = 0;
+    let temp = [...world];
+    let position = 0;
 
-      for (let i = 0; i < temp.length; i++) {
-        if (temp[i] === "mario") {
-          position = i;
-        }
+    for (let i = 0; i < temp.length; i++) {
+      if (temp[i] === "mario") {
+        position = i;
       }
-      if (temp[position - 20] !== "sky") setFalling(false);
-      setTimeout(() => {
-        if (
-          temp[position + 20] === "block" ||
-          temp[position + 20] === "lucky" ||
-          temp[position + 20] === "pipe3-1" ||
-          temp[position + 20] === "pipe3-2" ||
-          temp[position + 20] === "ground"
-        ) {
-          setSkip(true);
-          setFalling(true);
+    }
+    if (temp[position + 20] === "sky") setFalling(true);
+  }, [world]);
+  useEffect(() => {
+    let temp = [...world];
+    let position = 0;
+    let timeOutID;
+    console.log("falling", falling);
+    if (falling) {
+      console.log("im in");
+      timeOutID = setTimeout(() => {
+        for (let i = 0; i < temp.length; i++) {
+          if (temp[i] === "mario") {
+            position = i;
+          }
         }
-        console.log("before !skip", skip);
-        if (skip) {
-          console.log("pos", position);
-          temp[position + 20] = temp[position];
-          temp[position] = "mario";
-        } else {
-          setTimeout(() => {
-            temp[position + 20] = "mario";
-            temp[position] = "sky";
-            setWorld(temp);
-            setFalling(false);
-          }, 500);
-        }
+        temp[position + 20] = "mario";
+        temp[position] = "sky";
+        if (world[position + 20] === "sky") setWorld(temp);
+        setFalling(!falling);
       }, 500);
     }
-  }, [skip, falling, world]);
+
+    // const marioFalling = () => {
+    //   console.log("falling-mariofalling", falling);
+    //   if (falling) {
+    //     timeOutID = setTimeout(() => {
+    //       for (let i = 0; i < temp.length; i++) {
+    //         if (temp[i] === "mario") {
+    //           position = i;
+    //         }
+    //       }
+    //       temp[position + 20] = "mario";
+    //       temp[position] = "sky";
+    //       setWorld(temp);
+    //       console.log("pos", position);
+    //       temp[position + 40] === "sky" ? marioFalling() : setFalling(false);
+    //     }, 500);
+    // }
+    // };
+    // marioFalling();
+    return () => {
+      clearTimeout(timeOutID);
+    };
+  }, [falling, world]);
 
   const displayMap = () => {
     return world.map((tile, i) => {
