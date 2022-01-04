@@ -84,7 +84,7 @@ function WorldOne() {
           newCount++;
         }
       }
-      if (prevCount !== newCount) setScore((prevScore) => prevScore + 1);
+      if (prevCount !== newCount) setScore((prevScore) => prevScore + 100);
       setWorld(temp);
     },
     [world]

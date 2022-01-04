@@ -160,7 +160,6 @@ function StartingWorld() {
         }}
         ref={divEl}
       >
-        <div className="counter">0000</div>
         {displayMap()}
       </div>
     </div>
