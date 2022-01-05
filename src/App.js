@@ -5,6 +5,7 @@ import HomePage from "./components/Pages/HomePage/HomePage";
 import WorldOne from "./components/Pages/GameWorldOne/WorldOne";
 import StartingWorld from "./components/Pages/StartingWorld/StartingWorld";
 import WorldTwo from "./components/Pages/GameWorldTwo/WorldTwo";
+import EndingWorld from "./components/Pages/EndingWorld/EndingWorld";
 import Users from "./components/Pages/Users/Users";
 import NotFound from "./components/Pages/NotFound/NotFound";
 
@@ -35,6 +36,11 @@ function App() {
               path="/worldtwo"
               exact
               render={() => <WorldTwo score={score} setScore={setScore} />}
+            />
+            <Route
+              path="/end"
+              exact
+              render={() => <EndingWorld score={score} setScore={setScore} />}
             />
             <Route component={NotFound} />
           </Switch>

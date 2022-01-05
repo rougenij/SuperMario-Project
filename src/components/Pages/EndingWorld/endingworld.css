@@ -1,0 +1,55 @@
+@font-face {
+  font-family: "SuperMario";
+  src: url("../../../assets/Fonts/SuperMario256.woff") format("woff"),
+    url("../../../assets/Fonts/SuperMario256.ttf") format("tff");
+}
+
+.matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(13, 1fr);
+  z-index: 2;
+}
+.sky {
+  background: url("../../../Images/sky.png") center center / cover no-repeat;
+  height: 75px;
+}
+.ground {
+  background: url("../../../Images/ground.png") center center / cover no-repeat;
+}
+.castle11 {
+  background: url("../../../Images/Castle1.png") center center / cover no-repeat;
+}
+.castle12 {
+  background: url("../../../Images/Castle2.png") center center / cover no-repeat;
+}
+.castle13 {
+  background: url("../../../Images/Castle3.png") center center / cover no-repeat;
+}
+.castle14 {
+  background: url("../../../Images/Castle4.png") center center / cover no-repeat;
+}
+.castle15 {
+  background: url("../../../Images/Castle5.jpg") center center / cover no-repeat;
+}
+.castle16 {
+  background: url("../../../Images/Castle6.png") center center / cover no-repeat;
+}
+.castle17 {
+  background: url("../../../Images/Castle7.jpg") center center / cover no-repeat;
+}
+.castle18 {
+  background: url("../../../Images/Castle8.jpg") center center / cover no-repeat;
+}
+.castle19 {
+  background: url("../../../Images/Castle9.jpg") center center / cover no-repeat;
+}
+.block {
+  background: url("../../../Images/block.png") center center / cover no-repeat;
+}
+.counter {
+  position: absolute;
+  color: white;
+  font-size: 3rem;
+  font-family: "SuperMario";
+}

@@ -38,6 +38,18 @@ function WorldTwo(props) {
           case 4:
             el = "coin";
             break;
+          case 31:
+            el = "pipe3-1";
+            break;
+          case 32:
+            el = "pipe3-2";
+            break;
+          case 33:
+            el = "pipe3-3";
+            break;
+          case 34:
+            el = "pipe3-4";
+            break;
           default:
             el = "sky";
             break;
@@ -79,10 +91,9 @@ function WorldTwo(props) {
 
   useEffect(() => {
     let temp = [...world];
-    let position = 0;
-
-    position = getMarioPosition(temp);
-    if (temp[position + 20] === "sky") setFalling(true);
+    let position = getMarioPosition(temp);
+    if (temp[position + 20] === "sky" || temp[position + 20] === "coin")
+      setFalling(true);
   }, [world]);
   useEffect(() => {
     let temp = [...world];
@@ -94,14 +105,17 @@ function WorldTwo(props) {
         position = getMarioPosition(temp);
         temp[position + 20] = "mario";
         temp[position] = "sky";
-        if (world[position + 20] === "sky") setWorld(temp);
+        if (world[position + 20] === "sky" || world[position + 20] === "coin") {
+          setWorld(temp);
+          updateMap(temp);
+        }
         setFalling(!falling);
-      }, 500);
+      }, 350);
     }
     return () => {
       clearTimeout(timeOutID);
     };
-  }, [falling, world]);
+  }, [falling, world, updateMap]);
   const displayMap = () => {
     console.log(score);
     return world.map((tile, i) => {
