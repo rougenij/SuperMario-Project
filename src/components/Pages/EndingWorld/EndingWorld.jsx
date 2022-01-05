@@ -149,8 +149,8 @@ function EndingWorld(props) {
         onKeyDown={(e) => {
           let temp = [...world];
           let position = getMarioPosition(temp);
-          if (temp[position + 1] === "pipe7" && e.keyCode === 39) {
-            history.push("/worldone");
+          if (temp[position + 1] === "castle17" && e.keyCode === 39) {
+            history.push("/winner");
           }
           if (e.keyCode === 38 && !falling) {
             setFalling(true);
