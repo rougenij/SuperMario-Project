@@ -1,15 +1,17 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import startingMatrix from "../../../Utilis/matrixWorld";
 import playerMove from "../../../Utilis/player";
+import { useHistory } from "react-router-dom";
 
 import "./worldone.css";
 
-function WorldOne() {
+function WorldOne(props) {
   const [world, setWorld] = useState([]);
   const [matrix, setMatrix] = useState(startingMatrix);
   const [falling, setFalling] = useState(false);
-  const [score, setScore] = useState(0);
+  const { score, setScore } = props;
   const divEl = useRef("");
+  const history = useHistory();
   const getMarioPosition = (temp) => {
     for (let i = 0; i < temp.length; i++) {
       if (temp[i] === "mario") {
@@ -87,7 +89,7 @@ function WorldOne() {
       if (prevCount !== newCount) setScore((prevScore) => prevScore + 100);
       setWorld(temp);
     },
-    [world]
+    [world, setScore]
   );
 
   useEffect(() => {
@@ -138,6 +140,14 @@ function WorldOne() {
         className="matrix-grid"
         tabIndex={0}
         onKeyDown={(e) => {
+          let temp = [...world];
+          let position = getMarioPosition(temp);
+          if (
+            (temp[position + 20] === "pipe3-1" && e.keyCode === 40) ||
+            (temp[position + 20] === "pipe3-2" && e.keyCode === 40)
+          ) {
+            history.push("/worldtwo");
+          }
           if (e.keyCode === 38 && !falling) {
             setFalling(true);
           }

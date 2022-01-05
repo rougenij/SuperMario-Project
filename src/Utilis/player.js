@@ -24,8 +24,6 @@ const playerMove = (e, matrix, falling) => {
     // Jumping
     return marioJump(temp, position);
   }
-  if (e.keyCode === 40) {
-  }
 };
 export default playerMove;
 
@@ -51,9 +49,6 @@ const marioRight = (temp, position) => {
   } else {
     temp[position] = temp[position + 1];
     temp[position + 1] = "mario";
-  }
-  if (temp[position + 1] === "pipe7") {
-    document.location.pathname = "worldone";
   }
 
   return temp;
