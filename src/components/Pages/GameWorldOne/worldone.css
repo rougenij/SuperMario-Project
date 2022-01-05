@@ -38,13 +38,16 @@
 .mario {
   background: url("../../../Images/mario.png") center center / cover no-repeat;
 }
-.goomba {
-  background: url("../../../Images/goomba.png") center center / cover no-repeat;
-}
+/* .fakegoomba {
+  position: relative;
+} */
 .coin {
   background: url("../../../Images/coin.png") center center / cover no-repeat;
 }
-
+.goomba {
+  background: url("../../../Images/goomba.png") center center / cover no-repeat;
+  /* position: absolute; */
+}
 .counter {
   position: absolute;
   color: white;
