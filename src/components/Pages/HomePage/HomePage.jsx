@@ -68,7 +68,7 @@ function HomePage() {
       </header>
       <main className="main-homepage">
         {isLoggedIn ? (
-          <div>
+          <div className="main-homepage">
             <Link to={"/game"}>
               <button className="homepage-btn-playgame">Play Game</button>
             </Link>

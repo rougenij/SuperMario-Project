@@ -19,11 +19,7 @@ function App() {
           <Switch>
             <Route path="/" exact component={HomePage} />
             <Route path="/admin" exact component={Users} />
-            <Route
-              path="/game"
-              exact
-              render={() => <StartingWorld score={score} />}
-            />
+            <Route path="/game" exact component={StartingWorld} />
             <Route
               path="/worldone"
               exact

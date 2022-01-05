@@ -3,10 +3,15 @@
   margin: 0;
   box-sizing: border-box;
 }
+.winner-container {
+  display: flex;
+  flex-direction: column;
+}
 .winner-message,
 .winner-score {
   font-size: 5rem;
   color: white;
+  text-align: center;
 }
 .main-container {
   height: 100vh;

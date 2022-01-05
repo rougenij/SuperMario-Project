@@ -4,11 +4,10 @@ import playerMove from "../../../Utilis/player";
 import { useHistory } from "react-router-dom";
 import "./startingworld.css";
 
-function StartingWorld(props) {
+function StartingWorld() {
   const [matrix, setMatrix] = useState(startingWorld);
   const [world, setWorld] = useState([]);
   const [falling, setFalling] = useState(false);
-  const { score } = props;
   const history = useHistory();
   const divEl = useRef("");
 
@@ -142,11 +141,7 @@ function StartingWorld(props) {
   }, [falling, world]);
   const displayMap = () => {
     return world.map((tile, i) => {
-      return (
-        <div key={i} className={tile}>
-          {i}
-        </div>
-      );
+      return <div key={i} className={tile}></div>;
     });
   };
 
@@ -170,7 +165,6 @@ function StartingWorld(props) {
       >
         {displayMap()}
       </div>
-      <div>{score}</div>
     </div>
   );
 }
