@@ -1,0 +1,13 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.winner-message,
+.winner-score {
+  font-size: 5rem;
+  color: white;
+}
+.main-container {
+  height: 100vh;
+}

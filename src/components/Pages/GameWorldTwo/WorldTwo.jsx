@@ -121,11 +121,7 @@ function WorldTwo(props) {
   const displayMap = () => {
     console.log(score);
     return world.map((tile, i) => {
-      return (
-        <div key={i} className={tile}>
-          {i}
-        </div>
-      );
+      return <div key={i} className={tile}></div>;
     });
   };
 

@@ -133,11 +133,7 @@ function EndingWorld(props) {
   }, [falling, world]);
   const displayMap = () => {
     return world.map((tile, i) => {
-      return (
-        <div key={i} className={tile}>
-          {i}
-        </div>
-      );
+      return <div key={i} className={tile}></div>;
     });
   };
 

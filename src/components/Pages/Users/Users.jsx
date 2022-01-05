@@ -29,8 +29,9 @@ function Users() {
           <div className="card-img-container">
             <img src={user.profileimg} alt="userprofile" />
           </div>
-          <input placeholder="username"></input>
-          <input placeholder="score"></input>
+          <input placeholder="username" value={user.username}></input>
+          <input placeholder="score" value={user.score}></input>
+          <input placeholder="email" value={user.email}></input>
           <button onClick={() => handleEdit(user.id)}>Edit</button>
           <button onClick={() => handleDelete(user.id)}>Delete</button>
         </div>

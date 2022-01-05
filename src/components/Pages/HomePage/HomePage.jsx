@@ -28,6 +28,7 @@ function HomePage() {
         username: googleData.profileObj.name,
         score: 0,
         profileimg: googleData.profileObj.imageUrl,
+        email: googleData.profileObj.email,
       }
     );
     setLoginData(res);
