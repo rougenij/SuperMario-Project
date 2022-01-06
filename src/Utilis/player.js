@@ -7,11 +7,6 @@ const playerMove = (e, matrix, falling) => {
       position = i;
     }
   }
-
-  // const random = ["mushroom", "coin", "star"];
-  // let randomSurprise = Math.floor(Math.random() * 3);
-  // console.log(random[randomSurprise]);
-
   if (e.keyCode === 39) {
     // going right
     return marioRight(temp, position);

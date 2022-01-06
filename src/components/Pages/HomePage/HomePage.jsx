@@ -44,7 +44,7 @@ function HomePage() {
       <header className="main-header">
         <div className="main-home">
           {isLoggedIn ? (
-            <div>
+            <div className="logout-container">
               You logged in as {loginData.data.username}
               <button onClick={handleLogout}>Log Out</button>
             </div>
