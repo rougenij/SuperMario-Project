@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# AppleSeeds Bootcamp Mid Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Super Mario Project
 
-## Available Scripts
+### This Project was made by using React and JavaScript
 
-In the project directory, you can run:
+[SuperMario Project Link](https://rougenij-supermario.netlify.app/)
 
-### `npm start`
+# How to play :
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Mario moves by using Left Right Up Arrow key.
+2. If you reach near a pipe. Press Right Arrow or Down Arrow to enter the pipe
+3. 10 coins are spread around the world. collect them
+4. Have fun and enjoy :)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# RoadBlocks that i faced doing this project:
 
-### `npm test`
+1. MarioFall Function
+2. MarioMoving Function
+3. updateMap function
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# JS Functions:
 
-### `npm run build`
+All the JS functions are found inside Utilis folder
+the JS files are the following:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. matrixWorld -> Inside this file i coded the generation of the world
+2. player -> Inside this file i coded the movement of Mario
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Current state of the project :
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Starting World:
+![StartingWorld](ReadmeImages/StartingWorld.jpg)
+First World:
+![WorldOne](ReadmeImages/WorldOne.jpg)
+Second World
+![WorldTwo](ReadmeImages/WorldTwo.jpg)
+Ending World
+![EndingWorld](ReadmeImages/EndingWorld.jpg)
+If you reach the end you'll be sent to this:
+![WinningPage](ReadmeImages/WinningPage.jpg)
 
-### `npm run eject`
+## Future Plans for this project:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Monster Function -> That makes the monster move "The monster thats placed in the World one, "Goomba" "
+2. Adding Sound Effects -> Adding audio the game is a must add! Original Mario theme song, and different one for different Worlds
+3. More Worlds -> More Worlds to be added to this game!
+4. Better movement to mario with abit of animation
+5. Making the game responsive, We are in the phone generation world.. Soo web apps gotta be Mobile responsive
+6. Fully Working CRUD system
+7. Highscore -> Top 10 Players to be shown at the start of the game
+8. Rules Page -> Currently i have button that does nothing
+9. Admin Panel button -> Asks for password
+10. Better Authentication -> Basically checks if user already exists in API.. better google login
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### CopyRight Claim
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[Nintendo](https://www.nintendo.com/)
