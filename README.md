@@ -1,6 +1,6 @@
-# AppleSeeds Bootcamp Mid Project
+# AppleSeeds Bootcamp Mid Project  
 
-## Super Mario Project
+## Super Mario Project (DESKTOP ONLY)
 
 ### This Project was made by using React and JavaScript
 
